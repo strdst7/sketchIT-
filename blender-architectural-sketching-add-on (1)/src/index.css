@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #08090c;
+  --color-ink-2: #0d1015;
+  --color-ink-3: #131720;
+  --color-paper: #e9edf2;
+  --color-dim: #8b95a5;
+  --color-faint: #5b6472;
+  --color-blend: #ff6a00;
+  --color-blend-soft: #ff8a3d;
+  --color-inf-red: #ff5c5c;
+  --color-inf-blue: #5ea0ff;
+  --color-inf-cyan: #2dd4ee;
+  --color-inf-green: #3ddc97;
+  --color-inf-pink: #f472b6;
+  --color-inf-amber: #ffb020;
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --animate-marquee: marquee 36s linear infinite;
+  --animate-pulse-dot: pulse-dot 1.6s ease-in-out infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+      box-shadow: 0 0 0 0 rgba(255, 106, 0, 0.55);
+    }
+    50% {
+      opacity: 0.75;
+      box-shadow: 0 0 0 6px rgba(255, 106, 0, 0);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-blend);
+  color: var(--color-ink);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: #1d232e;
+  border-radius: 8px;
+  border: 2px solid var(--color-ink);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a3240;
+}
+
+/* Outlined display type */
+.text-outline {
+  -webkit-text-stroke: 1.5px rgba(233, 237, 242, 0.4);
+  color: transparent;
+}
+
+/* Film grain overlay */
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  opacity: 0.055;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Blueprint corner ticks for cards */
+.tick-corner {
+  position: relative;
+}
+.tick-corner::before,
+.tick-corner::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: rgba(255, 106, 0, 0.7);
+  border-style: solid;
+  transition: border-color 0.3s ease;
+}
+.tick-corner::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1.5px 0 0 1.5px;
+}
+.tick-corner::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1.5px 1.5px 0;
+}
