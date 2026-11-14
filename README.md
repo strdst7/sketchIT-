@@ -182,9 +182,7 @@ Issues and pull requests are welcome. Before opening a PR against the playground
 Sketchline is an independent project. It is **not affiliated with SketchUp, Trimble, or the Blender Foundation**. "SketchUp" is referenced only to describe the workflow being brought to Blender.
 
 ## License
-
-No license file is present in this repository yet. Absent a license, all rights are reserved by the author. Add a `LICENSE` file before distributing or reusing this code.
-
+MIT
 ---
 
 Built by [kdmirah lab](https://aimirah.me).
